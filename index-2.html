@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prachi . G — Backend Developer</title>
+  <meta name="description" content="Portfolio of Prachi G — Backend Developer, CS Student at Pacific States University, Los Angeles." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink-soft:   #f9ece8;
+      --pink-light:  #f2d5cf;
+      --pink-mid:    #e0b5ac;
+      --pink-accent: #c07068;
+      --ink:         #1c1214;
+      --ink-light:   #3e292d;
+      --ink-muted:   #8a6b70;
+      --white:       #fefaf9;
+      --card:        #fdf3f0;
+      --border:      #e8ccc8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 62px; padding: 0 6%;
+      background: rgba(254,250,249,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem; font-weight: 500; letter-spacing: .02em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      font-size: .78rem; font-weight: 400;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--ink-light); text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--pink-accent); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); transition: .3s; }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh; padding: 110px 6% 80px;
+      display: flex; align-items: center;
+      background: linear-gradient(150deg, var(--white) 0%, var(--pink-soft) 55%, var(--pink-light) 100%);
+      position: relative; overflow: hidden;
+    }
+    #home::after {
+      content: '';
+      position: absolute; bottom: -100px; right: -80px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, var(--pink-light) 0%, transparent 65%);
+      opacity: .6; pointer-events: none;
+    }
+    .hero-content {
+      max-width: 760px;
+      animation: fadeUp .9s .1s both;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--pink-light); color: var(--ink-light);
+      font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 999px; margin-bottom: 1.6rem;
+    }
+    h1.hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.4rem, 9vw, 6.5rem);
+      font-weight: 300; line-height: 1.0; color: var(--ink);
+      margin-bottom: .6rem;
+    }
+    h1.hero-name span { color: var(--pink-accent); font-style: italic; }
+    .hero-role {
+      font-size: .97rem; font-weight: 400; color: var(--ink-muted);
+      letter-spacing: .03em; margin-bottom: .4rem;
+    }
+    .hero-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-style: italic; font-weight: 300;
+      color: var(--ink-light); margin-bottom: 2rem;
+    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
+    .btn {
+      display: inline-block; padding: 11px 30px; border-radius: 999px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .86rem; font-weight: 500; letter-spacing: .04em;
+      cursor: pointer; transition: .22s; text-decoration: none; border: 2px solid transparent;
+    }
+    .btn-dark { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .btn-dark:hover { background: var(--pink-accent); border-color: var(--pink-accent); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--white); }
+    .hero-bio {
+      font-size: .96rem; line-height: 1.85; color: var(--ink-light);
+      max-width: 600px;
+    }
+
+    /* ── SHARED ── */
+    section { padding: 88px 6%; }
+    .label-small {
+      display: block; font-size: .7rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--pink-accent); margin-bottom: .4rem;
+    }
+    h2.sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 2.9rem);
+      font-weight: 400; color: var(--ink); line-height: 1.15;
+      margin-bottom: .7rem;
+    }
+    h2.sec-title em { font-style: italic; color: var(--pink-accent); }
+    .rule { width: 44px; height: 2px; background: var(--pink-mid); margin-bottom: 2.8rem; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--card); }
+    .about-wrap {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start;
+      max-width: 1100px;
+    }
+    .about-text p { font-size: .95rem; line-height: 1.9; color: var(--ink-light); margin-bottom: 1.1rem; }
+    .meta-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .meta-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.1rem 1.3rem;
+    }
+    .meta-card .mc-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--pink-accent); margin-bottom: .3rem; }
+    .meta-card .mc-val { font-size: .91rem; font-weight: 500; color: var(--ink); }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--white); }
+    .skills-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4rem; max-width: 900px; }
+    .skill-row { margin-bottom: .8rem; }
+    .skill-top { display: flex; justify-content: space-between; font-size: .87rem; font-weight: 500; color: var(--ink); margin-bottom: .4rem; }
+    .bar-track { height: 5px; background: var(--pink-soft); border-radius: 999px; overflow: hidden; }
+    .bar-fill {
+      height: 100%; border-radius: 999px;
+      background: linear-gradient(90deg, var(--pink-mid), var(--pink-accent));
+      width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--card); }
+    .tl { max-width: 800px; padding-left: 1.8rem; position: relative; }
+    .tl::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--pink-light); }
+    .tl-entry {
+      position: relative; margin-bottom: 2.6rem;
+      opacity: 0; transform: translateY(18px); transition: .6s;
+    }
+    .tl-entry.in { opacity: 1; transform: none; }
+    .tl-dot {
+      position: absolute; left: -2.3rem; top: .35rem;
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--pink-accent); border: 2px solid var(--white);
+    }
+    .tl-when { font-size: .75rem; text-transform: uppercase; letter-spacing: .09em; color: var(--pink-accent); margin-bottom: .3rem; }
+    .tl-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--ink); }
+    .tl-co { font-size: .86rem; color: var(--ink-muted); margin-bottom: .7rem; }
+    .tl-list { list-style: none; }
+    .tl-list li { font-size: .9rem; color: var(--ink-light); line-height: 1.72; padding-left: 1.1rem; position: relative; }
+    .tl-list li::before { content: '–'; position: absolute; left: 0; color: var(--pink-mid); }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--white); }
+    .edu-block {
+      max-width: 700px; background: var(--card);
+      border: 1px solid var(--border); border-radius: 16px; padding: 2.2rem 2.6rem;
+    }
+    .edu-deg { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 500; color: var(--ink); margin-bottom: .25rem; }
+    .edu-school { font-size: .97rem; color: var(--pink-accent); margin-bottom: .6rem; }
+    .edu-note { font-size: .9rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ── CERTS ── */
+    #certifications { background: var(--card); }
+    .cert-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.1rem; max-width: 860px; }
+    .cert-tile {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem 1.6rem; transition: transform .2s, box-shadow .2s;
+    }
+    .cert-tile:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(192,112,104,.13); }
+    .cert-tile .ico { font-size: 1.7rem; margin-bottom: .65rem; }
+    .cert-tile .cn { font-size: .94rem; font-weight: 500; color: var(--ink); margin-bottom: .2rem; }
+    .cert-tile .ci { font-size: .81rem; color: var(--ink-muted); }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: linear-gradient(140deg, var(--pink-soft) 0%, var(--pink-light) 100%);
+      text-align: center;
+    }
+    .contact-wrap { max-width: 620px; margin: 0 auto; }
+    .contact-sub { font-size: .95rem; color: var(--ink-light); margin-bottom: 2.4rem; }
+    .cf { display: flex; flex-direction: column; gap: .9rem; text-align: left; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+    .cf label { display: block; font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-light); margin-bottom: .3rem; }
+    .cf input, .cf textarea {
+      width: 100%; background: rgba(255,255,255,.8);
+      border: 1.5px solid var(--border); border-radius: 8px;
+      padding: 11px 14px;
+      font-family: 'DM Sans', sans-serif; font-size: .91rem; color: var(--ink);
+      outline: none; transition: border-color .2s;
+    }
+    .cf input:focus, .cf textarea:focus { border-color: var(--pink-accent); background: #fff; }
+    .cf textarea { resize: vertical; min-height: 118px; }
+    .contact-chips { margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .chip {
+      display: flex; align-items: center; gap: .45rem;
+      background: rgba(255,255,255,.72); border: 1px solid var(--border);
+      border-radius: 999px; padding: 7px 18px; font-size: .83rem; color: var(--ink);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(249,236,232,.75);
+      text-align: center; padding: 1.8rem 5%;
+      font-size: .81rem; letter-spacing: .04em;
+    }
+    footer strong { color: var(--pink-mid); font-weight: 400; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity:0; transform: translateY(26px); } to { opacity:1; transform:none; } }
+    .reveal { opacity:0; transform: translateY(22px); transition: opacity .7s, transform .7s; }
+    .reveal.in { opacity:1; transform:none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 62px; left: 0; right: 0; background: var(--white); padding: 1.4rem 6%; border-bottom: 1px solid var(--border); gap: 1.1rem; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .about-wrap { grid-template-columns: 1fr; gap: 2.2rem; }
+      .meta-cards { grid-template-columns: 1fr; }
+      .skills-cols { grid-template-columns: 1fr; }
+      .cf-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#home">Prachi . G</a>
+  <ul class="nav-links" id="nl">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hbg" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-content">
+    <span class="hero-tag">Backend Developer · CS Student</span>
+    <h1 class="hero-name">Prachi<br><span>. G</span></h1>
+    <p class="hero-role">Backend-Focused Computer Science · Pacific States University</p>
+    <p class="hero-quote">"Building reliable systems, one line at a time."</p>
+    <div class="hero-cta">
+      <a href="#skills" class="btn btn-dark">View Skills</a>
+      <a href="#contact" class="btn btn-ghost">Contact Me</a>
+    </div>
+    <p class="hero-bio">
+      Backend developer with hands-on experience in Java, SQL, and secure database architecture.
+      Skilled in Spring, Hibernate, and ERD modeling — with a strong foundation in analytical
+      problem-solving and clean, well-documented code.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-text reveal">
+      <span class="label-small">Who I Am</span>
+      <h2 class="sec-title">About <em>Me</em></h2>
+      <div class="rule"></div>
+      <p>I'm a backend-focused Computer Science student at Pacific States University in Los Angeles, with 2+ years completed toward my BBA in CS. My background spans Java development, SQL database design, and secure backend architecture.</p>
+      <p>Through internships at Unisoft Technologies and an academic internship with an NGO, I've built real-world experience with enterprise tools including Spring Security, Hibernate, Oracle 19c, and payment gateway integrations.</p>
+      <p>I'm drawn to problems that demand both precision and creativity — from designing ERD models to optimizing queries and building systems that are secure, scalable, and maintainable.</p>
+    </div>
+    <div class="meta-cards reveal" style="transition-delay:.15s;margin-top:4.5rem">
+      <div class="meta-card"><div class="mc-label">Location</div><div class="mc-val">Los Angeles, California</div></div>
+      <div class="meta-card"><div class="mc-label">University</div><div class="mc-val">Pacific States University</div></div>
+      <div class="meta-card"><div class="mc-label">Email</div><div class="mc-val">P26150@psu.edu</div></div>
+      <div class="meta-card"><div class="mc-label">Focus</div><div class="mc-val">Backend Systems & Secure Architecture</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <span class="label-small reveal">What I Know</span>
+  <h2 class="sec-title reveal">Technical <em>Skills</em></h2>
+  <div class="rule reveal"></div>
+  <div class="skills-cols">
+    <div>
+      <div class="skill-row reveal"><div class="skill-top"><span>C / C++</span><span>96%</span></div><div class="bar-track"><div class="bar-fill" data-w="96"></div></div></div>
+      <div class="skill-row reveal"><div class="skill-top"><span>SQL (Oracle 19c)</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" data-w="90"></div></div></div>
+      <div class="skill-row reveal"><div class="skill-top"><span>Spring / Spring Security</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
+      <div class="skill-row reveal"><div class="skill-top"><span>API Architecture</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
+    </div>
+    <div>
+      <div class="skill-row reveal"><div class="skill-top"><span>ERD Modeling</span><span>88%</span></div><div class="bar-track"><div class="bar-fill" data-w="88"></div></div></div>
+      <div class="skill-row reveal"><div class="skill-top"><span>Java</span><span>80%</span></div><div class="bar-track"><div class="bar-fill" data-w="80"></div></div></div>
+      <div class="skill-row reveal"><div class="skill-top"><span>Hibernate / JPA</span><span>83%</span></div><div class="bar-track"><div class="bar-fill" data-w="83"></div></div></div>
+      <div class="skill-row reveal"><div class="skill-top"><span>Technical Documentation</span><span>82%</span></div><div class="bar-track"><div class="bar-fill" data-w="82"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <span class="label-small reveal">Work History</span>
+  <h2 class="sec-title reveal">Experience</h2>
+  <div class="rule reveal"></div>
+  <div class="tl">
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-when">Jan 2019 – Jul 2019</div>
+      <div class="tl-title">Backend Developer Intern — Java</div>
+      <div class="tl-co">Unisoft Technologies</div>
+      <ul class="tl-list">
+        <li>Developed backend components for an e-commerce web application</li>
+        <li>Implemented Spring Data JPA with Hibernate for database integration</li>
+        <li>Applied Spring Security for authentication and role-based authorization</li>
+        <li>Integrated secure payment gateway functionality</li>
+        <li>Collaborated in structured development cycles and code reviews</li>
+      </ul>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-when">Jul 2019 – Jan 2020</div>
+      <div class="tl-title">Backend Developer Intern — SQL & Database Systems</div>
+      <div class="tl-co">Unisoft Technologies</div>
+      <ul class="tl-list">
+        <li>Designed and implemented ERD models using Oracle 19c</li>
+        <li>Developed and optimized SQL queries and stored procedures</li>
+        <li>Implemented DDL, DML, DCL, and TCL operations</li>
+        <li>Built search and tracking features to improve system efficiency</li>
+        <li>Ensured data accuracy and integrity across systems</li>
+      </ul>
+    </div>
+
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-when">Sep 2020 – Feb 2021</div>
+      <div class="tl-title">Backend Developer — Academic Internship</div>
+      <div class="tl-co">Jai Durga Bahu Uddeshiya Shikshan Sanstha (NGO)</div>
+      <ul class="tl-list">
+        <li>Managed and secured organizational database systems</li>
+        <li>Implemented role-based data access controls</li>
+        <li>Collaborated with stakeholders to improve database workflows</li>
+        <li>Maintained documentation and structured reporting processes</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <span class="label-small reveal">Academic Background</span>
+  <h2 class="sec-title reveal">Education</h2>
+  <div class="rule reveal"></div>
+  <div class="edu-block reveal">
+    <div class="edu-deg">Bachelor of Business Administration in Computer Science</div>
+    <div class="edu-school">Pacific States University · Los Angeles, California</div>
+    <div class="edu-note">Completed 2+ years toward a 4-year degree — originally enrolled in Engineering Computer Science, later transitioned to BBA in Computer Science. Strong coursework in backend systems, database design, and software development principles.</div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <span class="label-small reveal">Credentials</span>
+  <h2 class="sec-title reveal">Certifications</h2>
+  <div class="rule reveal"></div>
+  <div class="cert-row">
+    <div class="cert-tile reveal">
+      <div class="ico">🏅</div>
+      <div class="cn">C and C++ Training</div>
+      <div class="ci">Unisoft Technologies</div>
+    </div>
+    <div class="cert-tile reveal" style="transition-delay:.1s">
+      <div class="ico">☕</div>
+      <div class="cn">Java SE 8 Programming (Core)</div>
+      <div class="ci">Oracle</div>
+    </div>
+    <div class="cert-tile reveal" style="transition-delay:.2s">
+      <div class="ico">🗄️</div>
+      <div class="cn">Oracle Database: Introduction to SQL</div>
+      <div class="ci">Oracle</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <span class="label-small reveal">Get In Touch</span>
+    <h2 class="sec-title reveal">Say <em>Hello</em></h2>
+    <p class="contact-sub reveal">Open to opportunities, collaborations, and conversations.</p>
+    <form class="cf reveal" onsubmit="handleForm(event)">
+      <div class="cf-row">
+        <div><label for="cn">Name</label><input type="text" id="cn" placeholder="Your name" required /></div>
+        <div><label for="ce">Email</label><input type="email" id="ce" placeholder="your@email.com" required /></div>
+      </div>
+      <div><label for="cm">Message</label><textarea id="cm" placeholder="What's on your mind?" required></textarea></div>
+      <button class="btn btn-dark" type="submit" style="align-self:flex-start">Send Message</button>
+    </form>
+    <div class="contact-chips reveal">
+      <div class="chip">✉️&nbsp; P26150@psu.edu</div>
+      <div class="chip">📍&nbsp; Los Angeles, California</div>
+      <div class="chip">🎓&nbsp; Pacific States University</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>Prachi . G</strong> &nbsp;·&nbsp; All rights reserved &nbsp;·&nbsp; Los Angeles, California</p>
+</footer>
+
+<script>
+  // Mobile nav
+  document.getElementById('hbg').addEventListener('click', () =>
+    document.getElementById('nl').classList.toggle('open')
+  );
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        // skill bars
+        e.target.querySelectorAll?.('.bar-fill').forEach(b => b.style.width = b.dataset.w + '%');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.tl-entry').forEach(el => io.observe(el));
+
+  // Skill bars via their own observer
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    const bio = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { bar.style.width = bar.dataset.w + '%'; bio.disconnect(); }
+    }, { threshold: .4 });
+    bio.observe(bar);
+  });
+
+  // Form
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Sent ✓';
+    btn.style.background = 'var(--pink-accent)';
+    btn.style.borderColor = 'var(--pink-accent)';
+    setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; btn.style.borderColor = ''; e.target.reset(); }, 3000);
+  }
+</script>
+</body>
+</html>
