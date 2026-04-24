@@ -1,0 +1,23 @@
+Place your images in this folder.
+
+Suggested files:
+──────────────────────────────────────
+profile.jpg       Your headshot / profile photo (square, min 400x400px recommended)
+og-image.jpg      Social media preview image (1200x630px)
+
+Supported formats: JPG, PNG, WebP, SVG
+──────────────────────────────────────
+To use profile.jpg in the hero section, add this inside .hero-content in index.html:
+
+  <img src="assets/images/profile.jpg" alt="Prachi G" class="hero-photo" />
+
+And add this CSS in style.css:
+
+  .hero-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--pink-mid);
+    margin-bottom: 1.5rem;
+  }
