@@ -1,7 +1,0 @@
-Place your images in this folder.
-
-Recommended files:
-- profile.jpg       (your profile/headshot photo)
-- og-image.jpg      (social media preview image, 1200x630px)
-
-Supported formats: JPG, PNG, WebP, SVG
