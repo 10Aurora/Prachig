@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prachi . G — Backend Developer, Java, SQL, Database Systems. Pacific States University, Los Angeles." />
+  <meta name="keywords" content="Prachi, backend developer, Java, SQL, Oracle, Spring, database, portfolio" />
+  <title>Prachi . G — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════ NAVIGATION ══════════════ -->
+  <nav>
+    <a class="nav-logo" href="#home">Prachi . G</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section id="home">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Backend Developer &amp; Computer Science</div>
+      <h1 class="hero-name">Prachi <em>. G</em></h1>
+      <p class="hero-title">Backend Developer &nbsp;·&nbsp; Java &nbsp;·&nbsp; SQL &nbsp;·&nbsp; Database Systems</p>
+      <p class="hero-tagline">"Building robust, secure, and efficient systems — one query at a time."</p>
+      <div class="hero-info">
+        <span>Los Angeles, California</span>
+        <span>Pacific States University</span>
+        <span>P26150@psu.edu</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#experience" class="btn btn-primary">View Experience</a>
+        <a href="#contact"    class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-label">Who I Am</div>
+        <h2 class="section-title">About Me</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <p>I'm a backend-focused Computer Science student at Pacific States University with 2+ years completed toward my degree. My work centres on building scalable, secure, and well-structured backend systems using Java, SQL, and modern frameworks.</p>
+          <p>Through internships and academic projects, I've developed a strong foundation in database architecture, API design, and secure backend development — with a deep appreciation for clean code and thoughtful problem-solving.</p>
+          <p>I bring strong analytical reasoning and technical writing skills that translate well across development, data work, and AI-related evaluation tasks.</p>
+        </div>
+        <div class="about-highlights fade-in">
+          <div class="highlight-item">
+            <h4>Backend Architecture</h4>
+            <p>Experienced with Spring Data JPA, Hibernate, and RESTful API design for scalable systems.</p>
+          </div>
+          <div class="highlight-item">
+            <h4>Database Systems</h4>
+            <p>Strong in Oracle 19c SQL, ERD modelling, DDL/DML/DCL/TCL operations, and data integrity practices.</p>
+          </div>
+          <div class="highlight-item">
+            <h4>Security-Aware Development</h4>
+            <p>Applied Spring Security for authentication, role-based access control, and payment integration.</p>
+          </div>
+          <div class="highlight-item">
+            <h4>Analytical &amp; Documentation</h4>
+            <p>Skilled at technical documentation, structured problem-solving, and cross-functional collaboration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SKILLS ══════════════ -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-label">Technical Proficiency</div>
+        <h2 class="section-title">Skills</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="skills-grid fade-in">
+        <!-- Column 1 -->
+        <div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Java</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-item skill-gap">
+            <div class="skill-label"><span>SQL (Oracle 19c)</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item skill-gap">
+            <div class="skill-label"><span>Spring / Hibernate</span><span>84%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="84"></div></div>
+          </div>
+          <div class="skill-item skill-gap">
+            <div class="skill-label"><span>C / C++</span><span>96%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="96"></div></div>
+          </div>
+        </div>
+        <!-- Column 2 -->
+        <div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Database Design (ERD)</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-item skill-gap">
+            <div class="skill-label"><span>API Architecture</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item skill-gap">
+            <div class="skill-label"><span>Spring Security</span><span>80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-item skill-gap">
+            <div class="skill-label"><span>Technical Documentation</span><span>88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EXPERIENCE ══════════════ -->
+  <section id="experience">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-label">Work History</div>
+        <h2 class="section-title">Experience</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="timeline fade-in">
+
+        <!-- Job 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">Jan 2019 – Jul 2019</div>
+          <div class="timeline-title">Backend Developer Intern (Java)</div>
+          <div class="timeline-org">Unisoft Technologies</div>
+          <div class="timeline-body">
+            <ul>
+              <li>Developed backend components for an e-commerce web application</li>
+              <li>Implemented Spring Data JPA with Hibernate for database integration</li>
+              <li>Applied Spring Security for authentication and role-based authorization</li>
+              <li>Integrated secure payment gateway functionality</li>
+              <li>Collaborated in structured development cycles and code reviews</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">Jul 2019 – Jan 2020</div>
+          <div class="timeline-title">Backend Developer Intern (SQL &amp; Database Systems)</div>
+          <div class="timeline-org">Unisoft Technologies</div>
+          <div class="timeline-body">
+            <ul>
+              <li>Designed and implemented ERD models using Oracle 19c</li>
+              <li>Developed and optimised SQL queries and stored procedures</li>
+              <li>Implemented DDL, DML, DCL, and TCL operations</li>
+              <li>Built search and tracking features to improve system efficiency</li>
+              <li>Ensured data accuracy and integrity across systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">Sept 2020 – Feb 2021</div>
+          <div class="timeline-title">Backend Developer — Academic Internship</div>
+          <div class="timeline-org">Jai Durga Bahu Uddeshiya Shikshan Sanstha (NGO)</div>
+          <div class="timeline-body">
+            <ul>
+              <li>Managed and secured organisational database systems</li>
+              <li>Implemented role-based data access controls</li>
+              <li>Collaborated with stakeholders to improve database workflows</li>
+              <li>Maintained documentation and structured reporting processes</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EDUCATION ══════════════ -->
+  <section id="education">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-label">Academic Background</div>
+        <h2 class="section-title">Education</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="badge">Currently Enrolled</div>
+        <h3>Bachelor of Business Administration in Computer Science</h3>
+        <p class="edu-uni">Pacific States University &nbsp;—&nbsp; Los Angeles, CA</p>
+        <p>Completed 2+ years in Engineering Computer Science, now pursuing BBA in Computer Science toward a 4-year degree. Building a strong foundation in backend development, database systems, and software architecture.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CERTIFICATIONS ══════════════ -->
+  <section id="certifications">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-label">Professional Development</div>
+        <h2 class="section-title">Certifications</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="certs-grid fade-in">
+        <div class="cert-card">
+          <div class="cert-icon">🏅</div>
+          <h4>C and C++ Training</h4>
+          <p>Unisoft Technologies</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">☕</div>
+          <h4>Java SE 8 Programming (Core)</h4>
+          <p>Oracle</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🗄️</div>
+          <h4>Oracle Database: Introduction to SQL</h4>
+          <p>Oracle</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Contact</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="contact-grid fade-in">
+        <div class="contact-info">
+          <h3>Let's Connect</h3>
+          <p>I'm open to backend development opportunities, internships, research collaborations, and AI evaluation roles. Feel free to reach out — I'd love to hear from you.</p>
+          <div class="contact-detail">
+            <div class="icon">✉️</div>
+            <span>P26150@psu.edu</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon">📍</div>
+            <span>Los Angeles, California</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon">🎓</div>
+            <span>Pacific States University</span>
+          </div>
+        </div>
+        <div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text"  name="name"    placeholder="Your Name"    required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email"   placeholder="Your Email"   required />
+            </div>
+            <div class="form-group">
+              <textarea           name="message" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <p class="footer-name">Prachi . G</p>
+    <p>Backend Developer &nbsp;·&nbsp; Pacific States University &nbsp;·&nbsp; Los Angeles, CA</p>
+    <p style="margin-top:0.5rem">© 2025 Prachi . G &nbsp;·&nbsp; All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
